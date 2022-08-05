@@ -27,7 +27,7 @@ class FiveMinutePost extends Command
      *
      * @return int
      */
-    public function handle()
+    public function handle(): int
     {
         $posts = Http::get('https://jsonplaceholder.typicode.com/posts')->json();
         $this->output->progressStart(count($posts));

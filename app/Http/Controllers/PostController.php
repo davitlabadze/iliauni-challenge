@@ -11,7 +11,7 @@ class PostController extends Controller
      *
      * @return object
      */
-    public function posts()
+    public function posts(): object
     {
         $posts = Post::get();
         return view('components.posts', ['posts' => $posts]);
@@ -23,7 +23,7 @@ class PostController extends Controller
      * @param [string] $id
      * @return object
      */
-    public function post($id)
+    public function post($id): object
     {
         $post = Post::find($id);
         return view('components.post', ['post' => $post]);
