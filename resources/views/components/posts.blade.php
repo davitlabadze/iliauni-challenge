@@ -11,7 +11,8 @@
             <h2>{{ substr($post->body ,0,50) }}...</h2>
         </div>
         <div class="bottom-4 fixed">
-            <button class="bg-blue-600 hover:bg-blue-700 rounded p-2 mt-10  text-white">See more</button>
+            <a href="{{ route('post',['id'=>$post->id,'title'=>$post->title]) }}"
+                class="bg-blue-600 hover:bg-blue-700 rounded p-2 mt-10  text-white">See more</a>
         </div>
     </div>
     @endforeach
