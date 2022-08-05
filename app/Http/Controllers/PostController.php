@@ -15,7 +15,7 @@ class PostController extends Controller
     public function posts()
     {
         $posts = Post::get();
-        return view('posts', ['posts' => $posts]);
+        return view('components.posts', ['posts' => $posts]);
     }
 
     /**
@@ -27,6 +27,6 @@ class PostController extends Controller
     public function post($id)
     {
         $post = Post::find($id);
-        return view('post', ['post' => $post]);
+        return view('components.post', ['post' => $post]);
     }
 }
