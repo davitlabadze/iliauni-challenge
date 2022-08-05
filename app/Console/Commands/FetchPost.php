@@ -6,7 +6,7 @@ use App\Models\Post;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 
-class FiveMinutePost extends Command
+class FetchPost extends Command
 {
     /**
      * The name and signature of the console command.
@@ -33,8 +33,8 @@ class FiveMinutePost extends Command
         $this->output->progressStart(count($posts));
         foreach ($posts as $post) {
             Post::updateOrCreate(
-                ['id' => $post['id']],
-                ['userId' => $post['id'], 'title' => $post['title'], 'body' => $post['body']]
+                ['id' => $post['id'], 'title' => $post['title']],
+                ['userId' => $post['userId'], 'title' => $post['title'], 'body' => $post['body']]
             );
             sleep(2);
             $this->output->progressAdvance();
