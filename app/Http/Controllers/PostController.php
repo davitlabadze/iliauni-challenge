@@ -17,4 +17,16 @@ class PostController extends Controller
         $posts = Post::get();
         return view('posts', ['posts' => $posts]);
     }
+
+    /**
+     * Get post
+     *
+     * @param [string] $id
+     * @return object
+     */
+    public function post($id)
+    {
+        $post = Post::find($id);
+        return view('post', ['post' => $post]);
+    }
 }
