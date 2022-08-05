@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 Route::get('/', [PostController::class, 'posts']);
+Route::get('/post/{id}', [PostController::class, 'post']);
