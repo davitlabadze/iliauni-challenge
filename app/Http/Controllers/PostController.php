@@ -3,9 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Repositories\PostRepositoryInterface;
 
 class PostController extends Controller
 {
+
+    protected $repository;
+
+    public function __construct(PostRepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * Get Posts
      *
@@ -13,7 +22,7 @@ class PostController extends Controller
      */
     public function posts(): object
     {
-        $posts = Post::get();
+        $posts = $this->repository->getAll();
         return view('components.posts', ['posts' => $posts]);
     }
 
@@ -25,7 +34,33 @@ class PostController extends Controller
      */
     public function post($id): object
     {
-        $post = Post::find($id);
+        $post = $this->repository->getPost($id);
         return view('components.post', ['post' => $post]);
     }
+
+
+
+
+    // /**
+    //  * Get Posts
+    //  *
+    //  * @return object
+    //  */
+    // public function posts(): object
+    // {
+    //     $posts = Post::get();
+    //     return view('components.posts', ['posts' => $posts]);
+    // }
+
+    // /**
+    //  * Get post
+    //  *
+    //  * @param [string] $id
+    //  * @return object
+    //  */
+    // public function post($id): object
+    // {
+    //     $post = Post::find($id);
+    //     return view('components.post', ['post' => $post]);
+    // }
 }
