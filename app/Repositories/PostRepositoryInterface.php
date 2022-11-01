@@ -4,6 +4,14 @@ namespace App\Repositories;
 
 interface PostRepositoryInterface
 {
-    public function getAll();
-    public function getPost($id);
+    /**
+     * @return mixed
+     */
+    public function getAll(): mixed;
+
+    /**
+     * @param string $id
+     * @return mixed
+     */
+    public function getPost(string $id): mixed;
 }

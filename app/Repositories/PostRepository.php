@@ -4,16 +4,25 @@ namespace App\Repositories;
 
 use App\Models\Post;
 
+
 class PostRepository implements PostRepositoryInterface
 {
 
+    /**
+     * @return object
+     */
     public function getAll(): object
     {
-        return Post::get();
+        return Post::query()->get();
     }
 
-    public function getPost($id): object
+
+    /**
+     * @param string $id
+     * @return object
+     */
+    public function getPost(string $id):object
     {
-        return Post::findOrFail($id);
+        return Post::query()->findOrFail($id);
     }
 }
