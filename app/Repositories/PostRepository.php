@@ -4,10 +4,8 @@ namespace App\Repositories;
 
 use App\Models\Post;
 
-
 class PostRepository implements PostRepositoryInterface
 {
-
     /**
      * @return object
      */
@@ -21,7 +19,7 @@ class PostRepository implements PostRepositoryInterface
      * @param string $id
      * @return object
      */
-    public function getPost(string $id):object
+    public function getPost(string $id): object
     {
         return Post::query()->findOrFail($id);
     }
